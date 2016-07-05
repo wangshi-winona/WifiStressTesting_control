@@ -2,9 +2,10 @@
 all_ip="ip_all.txt"
 server="-p 12422 158.132.255.20"
 arr=()
+echo 'Adding known hosts ...'
 while IFS='' read -r line || [[ -n "$line" ]]; do
         arr+=(${line})
-	echo $line
+	#echo $line
 done < $all_ip
 for element in ${arr[@]};do
 	echo $element
@@ -12,3 +13,5 @@ for element in ${arr[@]};do
 done
 echo $server
 ssh-keyscan ${server} >> ~/.ssh/known_hosts
+echo 'Done'
+echo
