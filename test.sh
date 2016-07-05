@@ -1,5 +1,5 @@
 #! /bin/bash
-source /home/winona/control/script/test.conf
+source ./test.conf
 all_ip_file='ip_all.txt'
 web_ip_file='ip_web.txt'
 video_ip_file='ip_video.txt'
