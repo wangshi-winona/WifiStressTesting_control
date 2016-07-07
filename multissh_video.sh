@@ -4,7 +4,6 @@ server_ip=$2
 eid=$3
 location=$4
 video_file='video.txt'
-#pssh -P -i -h ${ip_file} -l pi "sudo python /home/pi/task/py/pyselenium.py ${server_ip} ${video_name}"
 arr=()
 while IFS='' read -r line || [[ -n "$line" ]]; do
 	#echo "Read from file: $line"
@@ -14,6 +13,6 @@ count=0
 while IFS='' read -r ip || [[ -n "$ip" ]]; do
 	i=$((${count}%${#arr[@]}))
 	#echo ${ip}': loading '${arr[${i}]}
-	ssh pi@${ip} "sudo /home/pi/task/script/reach.sh video;sudo python /home/pi/task/py/pyselenium.py ${server_ip} ${arr[${i}]} ${eid} ${location}"&
+	ssh pi@${ip} "sudo /home/pi/task/script/reach.sh video; sudo python /home/pi/task/py/pyselenium.py ${server_ip} ${arr[${i}]} ${eid} ${location}"&
 	count=${count}+1
 done < $ip_file
