@@ -5,3 +5,4 @@ NoOfVideo=$2
 ./clearKnownHosts.sh
 ./addKnownHosts.sh
 ./cpidpubAll.sh ip_all.txt
+./setRouteAll.sh ip_all.txt
