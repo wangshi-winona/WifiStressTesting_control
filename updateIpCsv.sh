@@ -1,2 +1,5 @@
-curl "http://158.132.255.20:12481/ip/ip.csv" -o ip.csv
+#! /bin/bash
+source connection.conf
+echo 'Updating ip.csv from '${ipCsvLink}
+curl ${ipCsvLink} -o ip.csv
 cat ip.csv

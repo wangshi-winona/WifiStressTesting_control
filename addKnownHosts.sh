@@ -1,6 +1,6 @@
 #! /bin/bash
+source connection.conf
 all_ip="ip_all.txt"
-server="-p 12422 158.132.255.20"
 arr=()
 echo 'Adding known hosts ...'
 while IFS='' read -r line || [[ -n "$line" ]]; do
@@ -11,7 +11,8 @@ for element in ${arr[@]};do
 	echo $element
 	ssh-keyscan $element >> ~/.ssh/known_hosts
 done
-echo $server
-ssh-keyscan ${server} >> ~/.ssh/known_hosts
+echo ${ipServerIp} $ipServerSshPort
+ssh-keyscan -p ${ipServerSshPort} ${ipServerIp} >> ~/.ssh/known_hosts
+
 echo 'Done'
 echo
