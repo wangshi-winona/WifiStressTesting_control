@@ -11,8 +11,5 @@ for element in ${arr[@]};do
 	echo $element
 	ssh-keyscan $element >> ~/.ssh/known_hosts
 done
-echo ${ipServerIp} $ipServerSshPort
-ssh-keyscan -p ${ipServerSshPort} ${ipServerIp} >> ~/.ssh/known_hosts
-
 echo 'Done'
 echo

@@ -1,4 +1,5 @@
 #! /bin/bash
+source connection.conf
 ip_file=$1
 server_ip=$2
 eid=$3
@@ -13,6 +14,6 @@ count=0
 while IFS='' read -r ip || [[ -n "$ip" ]]; do
 	i=$((${count}%${#arr[@]}))
 	#echo ${ip}': loading '${arr[${i}]}
-	ssh pi@${ip} "sudo /home/pi/task/script/reach.sh video; sudo python /home/pi/task/py/pyselenium.py ${server_ip} ${arr[${i}]} ${eid} ${location}"&
+	ssh pi@${ip} "sudo ${mainPath}/script/reach.sh video; sudo python ${mainPath}/py/pyselenium.py ${server_ip} ${arr[${i}]} ${eid} ${location}"&
 	count=${count}+1
 done < $ip_file
