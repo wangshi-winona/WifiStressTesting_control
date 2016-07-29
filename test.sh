@@ -1,11 +1,10 @@
 #! /bin/bash
-source ./test.conf
+source test.conf
 all_ip_file='ip_all.txt'
 web_ip_file='ip_web.txt'
 video_ip_file='ip_video.txt'
-
 #video task
-./multissh_video.sh ${video_ip_file} $videoServerIp $eid $location &
+./multissh_video.sh ${video_ip_file} ${videoServerIp} ${videoList} ${eid} ${location}&
 echo "Start video"
 echo "Wait 20s for launching firefox driver"
 sleep 20
